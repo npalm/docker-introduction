@@ -84,7 +84,7 @@ docker stop ubuntu
 
 ```
 docker start ubuntu
-docker -i -t ubuntu /bin/bash
+docker run -i -t ubuntu /bin/bash
  
 ```
 * Update repositories and install the game cowsay and create a link and clean up
