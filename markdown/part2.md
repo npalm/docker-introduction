@@ -13,7 +13,8 @@ Commands:
     inspect   Return low-level information on a container or image
     login     Register or log in to a Docker registry server
     logout    Log out from a Docker registry server
-    port      Lookup the public-facing port that is NAT-ed to PRIVATE_PORT
+    port      Lookup the public-facing port that is NAT-ed to
+              PRIVATE_PORT
     push      Push an image or a repository to a Docker registry server
     tag       Tag an image into a repository
     top       Lookup the running processes of a container
@@ -31,21 +32,21 @@ Run 'docker COMMAND --help' for more information on a command.
     * Build a docker image
     * Run the image
 
-!SUB 
+!SUB
 ### Create some static content
 
 Create a empty dir.
 
 ```
-mkdir webapp
-cd webapp
+mkdir lab2-web
+cd lab2-web
 ```
 Add some static contact, create a file index.html with some content for example.
 
 ```
 <!DOCTYPE html>
-<html><head> 
-<meta charset="UTF-8"> 
+<html><head>
+<meta charset="UTF-8">
 <title>Hello world</title></head>
 
 <body>Hello world</body>
@@ -77,7 +78,7 @@ docker build --tag lab2/webapp .
 
 Check the result
 ```
-docker images 
+docker images
 docker history lab2/webapp
 ```
 
@@ -98,6 +99,37 @@ Test with a browser or curl.
 
 ```
 docker stop myapp | xargs docker rm -v
+```
+
+!SUB
+### Automated build
+The docker hub provides automated build. Follow the next steps to autoomate the docker build.
+- Create a GitHub or BitBucket account (or use an existing if you have).
+- Create a new repository lab2-web.
+- Commit and push your Dockerfile.
+
+```
+# Ensure you ar in the directory lab2-web
+echo # lab2-web >> README.md
+git init
+git add --all
+git commit -m "Some comment"
+git remote add origin https://github.com/<username-github>/lab2-web.git
+git push -u origin master
+```
+
+!SUB
+### Automated build
+The next step is to automate the build.
+- Go to the Docker hub: (dockerhub)[https://hub.docker.com/] and create an account
+- Connect your GitHub (or BitBucket) to your Docker Hub account-
+- Create an automated build (top menu)
+- Use as name for the docker hub repo: lab2-web
+- Select your Git repository.
+- Save the build and trigger one.
+````
+docker run -d --name myapp -p 8888:80 \
+    <docker-hub-account>/lab2-webapp
 ```
 
 !SUB
