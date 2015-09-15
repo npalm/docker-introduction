@@ -60,11 +60,11 @@ docker rm <id> # to remove the container
 ```
 
 !SUB
-### Start a docker container 
-* Start a container as demon.
+### Start a docker container
+* Start a container as deamon.
 
 ```
-docker run -d --name ubuntu ubuntu /bin/sh -c \
+docker run -d --name mycontainer ubuntu /bin/sh -c \
    "while true; do echo Hello world; sleep 1; done"
 ```
 
@@ -72,8 +72,8 @@ docker run -d --name ubuntu ubuntu /bin/sh -c \
 * Stop the container
 
 ```
-docker logs -f ubuntu
-docker stop ubuntu
+docker logs -f mycontainer
+docker stop mycontainer
 ```
 
 !SUB
@@ -83,9 +83,9 @@ docker stop ubuntu
 * Commit a change made in a container to an image, persists the change.
 
 ```
-docker start ubuntu
-docker run -i -t ubuntu /bin/bash
- 
+docker start mycontainer
+docker exec -i -t mycontainer /bin/bash
+
 ```
 * Update repositories and install the game cowsay and create a link and clean up
 
@@ -108,10 +108,10 @@ that is used to create the container.
 * Commit you change in the container to an (new) image.
 * Remove the container.
 ```
-docker commit ubuntu <yourname>/ubuntu
-docker diff ubuntu                 # shows the added files
-docker history <yourname>/ubuntu   # shows the history of the image
-docker stop ubuntu | docker rm     # remove the container
+docker commit mycontainer <yourname>/mycontainer
+docker diff mycontainer               # shows the added files
+docker history <yourname>/mycontainer # shows the image history
+docker stop ubuntu | docker rm        # remove the container
 ```
 
 !SUB
@@ -119,8 +119,7 @@ docker stop ubuntu | docker rm     # remove the container
 * Now create a new container based on the new created image and run the game.
 * The second command shows that the game isn't available in the ubuntu image.
 ```
-docker run --rm <yourname>/ubuntu cowsay "Hello world"
+docker run --rm <yourname>/mycontainer cowsay "Hello world"
 docker run --rm ubuntu cowsay "Hello world"
 ```
 * You can push your change to the docker registry therefore you need to create an own repository.
-

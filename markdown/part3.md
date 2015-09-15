@@ -6,7 +6,7 @@
 ![test](images/docker-network-topology.png)
 - none, no networking
 - bridge, each container has is own
-- joined, containers shares a singel networking
+- joined, containers shares a single networking
 - hosts, use the host netowrking
 
 !SUB
@@ -51,7 +51,7 @@ docker run -d --link postgres:db --name web <image> <command
 ### Building a cluster.
 Next we will build a simple cluster containing.
 - One node acting as proxy
-- Three nodes acting as static web server
+- Three nodes acting as web server
 - One node acting as data store.
 
 Checkout out the following git repod
@@ -101,6 +101,7 @@ docker run -d --link redis:redis --name web2 lab3/web
 docker run -d --link redis:redis --name web3 lab3/web
 
 ```
+
 !SUB
 # Clean up
 - Docker ps shows you the conainters
