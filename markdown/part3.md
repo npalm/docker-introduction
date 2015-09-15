@@ -21,12 +21,12 @@ docker run --rm --net none busybox:latest ifconfig
 docker run --rm --net bridge busybox:latest ifconfig
 
 # or (bridge is the default)
-docker run --rm --net bridge busybox:latest ifconfig
+docker run --rm busybox:latest ifconfig
 
 # joined
 docker run --name joined1 -d --net none busybox:latest \
   nc -l 127.0.0.1:3333
-docker run --rm -it --net container:joined1 busybox:latest netstat –al
+docker run --rm -it --net container:joined1 busybox:latest netstat -al
 
 # host
 docker run --rm --net host busybox:latest ifconfig
@@ -85,7 +85,7 @@ docker run -d --name redis redis
 
 ```
 # Build the image
-docker build -t lab3/web .
+docker build -t lab3/web web
 
 # Start the container, not exposting the port is optional
 docker run -d -p 8080:8080 --link redis:redis --name web1 lab3/web
@@ -103,18 +103,6 @@ docker run -d --link redis:redis --name web3 lab3/web
 ```
 
 !SUB
-# Clean up
-- Docker ps shows you the conainters
-- Docker rm removes conainters
-
-```
-# -v removes inplicit mounts volumes
-# -f force to remove running containers
-# -q
-docker rm -v -f $(docker ps -q)
-```
-
-!SUB
 ### Building a cluster - proxy layter
 - We use nginx as proxy server.
 - Have a look at the nginx configuration file in the proxy directory.
@@ -122,7 +110,7 @@ docker rm -v -f $(docker ps -q)
 
 ```
 # Build the image
-docker build -t lab3/proxy .
+docker build -t lab3/proxy proxy
 
 # Start the container.
 docker run -d -p 80:80 --name proxy \

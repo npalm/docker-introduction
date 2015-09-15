@@ -108,10 +108,10 @@ that is used to create the container.
 * Commit you change in the container to an (new) image.
 * Remove the container.
 ```
-docker commit mycontainer <yourname>/mycontainer
+docker commit mycontainer <yourname>/ubuntu
 docker diff mycontainer               # shows the added files
-docker history <yourname>/mycontainer # shows the image history
-docker stop ubuntu | docker rm        # remove the container
+docker history <yourname>/ubuntu      # shows the image history
+docker stop ubuntu | xargs docker rm  # remove the container
 ```
 
 !SUB
@@ -119,7 +119,7 @@ docker stop ubuntu | docker rm        # remove the container
 * Now create a new container based on the new created image and run the game.
 * The second command shows that the game isn't available in the ubuntu image.
 ```
-docker run --rm <yourname>/mycontainer cowsay "Hello world"
+docker run --rm <yourname>/ubuntu cowsay "Hello world"
 docker run --rm ubuntu cowsay "Hello world"
 ```
 * You can push your change to the docker registry therefore you need to create an own repository.

@@ -10,9 +10,9 @@
 
 ### Ubuntu / Mint Linux
 
-* Follow this [guide](http://docs.docker.com/installation/ubuntulinux/#installing-docker-on-ubuntu) 
+* Follow this [guide](http://docs.docker.com/installation/ubuntulinux/#installing-docker-on-ubuntu)
 * Add your user to the docker group.
-* Update `/etc/default/docker` and update the `DOCKER_OPTS` to 
+* Update `/etc/default/docker` and update the `DOCKER_OPTS` to
     ```
     DOCKER_OPTS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
      ```
@@ -45,7 +45,7 @@ sudo sh -c 'echo DOCKER_OPTS=\"-H tcp://0.0.0.0:2375 -H \
 ### Ubuntu / Mint Linux
 * Test your installation as follow
     * open a shell
-    * run 
+    * run
         ```
         docker info
         ```
@@ -54,9 +54,9 @@ sudo sh -c 'echo DOCKER_OPTS=\"-H tcp://0.0.0.0:2375 -H \
 
 ### Windows
 For windows you should install virtualbox, git bash and boot2docker.
-* Follow this (guide)[http://docs.docker.com/installation/windows/#installation]
+* Follow this [guide](http://docs.docker.com/installation/windows/#installation)
     * Virtual box is used by boot2docker to host docker.
-    * git bash, gives some working shell. Just install (git)[https://git-scm.com/download/win]
+    * git bash, gives some working shell. Just install [git](https://git-scm.com/download/win)
     * Boot2Docker provides a docker client and manage your docker in the vm.
 
 
@@ -71,5 +71,18 @@ For windows you should install virtualbox, git bash and boot2docker.
 
 
 
+
+### Windows shell client
+Alternatively for the windows shell you can directly login to the docker vm using putty.
+* Download [putty ssh client](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+* Start putty
+  - Hostname: localhost
+  - Port: Start vitualbox and lookup the ssh port, see portfowarding section.
+  - SSH: Section tunnel and add the tunnel: Source port "8888", Destination "localhost:8888"
+  - Go back to the main section and save the session (user: docker, password: tcuser)
+
+
+
+
 ### Mac
-* Follow this (guide)[http://docs.docker.com/installation/mac/#install-boot2docker]
+* Follow this [guide](http://docs.docker.com/installation/mac/#install-boot2docker)

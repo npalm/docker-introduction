@@ -109,7 +109,7 @@ The docker hub provides automated build. Follow the next steps to autoomate the 
 - Commit and push your Dockerfile.
 
 ```
-# Ensure you ar in the directory lab2-web
+# Ensure you aar in the directory lab2-web
 echo # lab2-web >> README.md
 git init
 git add --all
