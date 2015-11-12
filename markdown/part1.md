@@ -111,8 +111,26 @@ that is used to create the container.
 docker commit mycontainer <yourname>/ubuntu
 docker diff mycontainer               # shows the added files
 docker history <yourname>/ubuntu      # shows the image history
-docker stop ubuntu | xargs docker rm  # remove the container
+docker stop mycontainer | xargs docker rm  # remove the container
 ```
+
+!SUB
+### Adding docker ui
+- In the next part we are creating many docker containers. Just for the fun we install a dockerui on our host.
+- Edit the docker-compose.yml (in atos-workshop/continuous) and add the dockerui section
+
+```
+dockerui:
+  image: dockerui/dockerui
+  privileged: true
+  ports:
+    - "9090:9000"
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+```
+- Use `docker-compose up -d` to start the dockerui container.
+- Browse to http://< ip-aws-instance >:9090 to see which containers are running.
+
 
 !SUB
 ### Update a docker image
