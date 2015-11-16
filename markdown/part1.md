@@ -116,20 +116,15 @@ docker stop mycontainer | xargs docker rm  # remove the container
 
 !SUB
 ### Adding docker ui
-- In the next part we are creating many docker containers. Just for the fun we install a dockerui on our host.
-- Edit the docker-compose.yml (in atos-workshop/continuous) and add the dockerui section
+- In the next part we are creating more docker containers. Just for the fun we install a dockerui on our host. So we can observer our containers via a web application.
+- Create a container for running dockerui as follow.
 
 ```
-dockerui:
-  image: dockerui/dockerui
-  privileged: true
-  ports:
-    - "9090:9000"
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
+docker run -d -p 9000:9000 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --privileged dockerui/dockerui
 ```
-- Use `docker-compose up -d` to start the dockerui container.
-- Browse to http://< ip-aws-instance >:9090 to see which containers are running.
+- Browse to http://< ip-aws-instance >:9000 to see which containers are running.
 
 
 !SUB
