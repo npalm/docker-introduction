@@ -138,6 +138,8 @@ git push -u origin master
 !SUB
 ### Automated build
 - Observe the output on the build page on Docker Hub. Once the build is done create a container based on your new build image.
+- You could also trigger a build with a HTTP post. See the instructions on the build settings page.
+
 ````
 docker run -d --name myapp -p 8888:80 \
     <docker-hub-account>/lab2-webapp
