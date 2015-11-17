@@ -79,15 +79,28 @@ docker stop mycontainer
 !SUB
 ### Update a docker image
 
-* Changes made in a container are only persists in that container. At the moment the container is dertoyed the change is lost.
+* Changes made in a container are only persists in that container. At the moment the container is destroyed the change is lost.
 * Commit a change made in a container to an image, persists the change.
 
 ```
+# Start our container
 docker start mycontainer
+
+# Exec the bash shell, this command gives access to our container
 docker exec -i -t mycontainer /bin/bash
 
+## You should see now something like:
+> root@<id>:/# _
 ```
-* Update repositories and install the game cowsay and create a link and clean up
+
+!SUB
+### Update a docker image
+* Next we are going to
+  * update the repositories
+  * install the game cowsay
+  * create a symbolic link
+  * clean up
+* The next command is a composite of all these actions.
 
 ```
 apt-get update && apt-get install cowsay -y && \
@@ -105,14 +118,36 @@ exit
 ```
 * Our installed game is now available in the docker container with the name ubuntu. But not in the image
 that is used to create the container.
+* You can now execute the cowsay command in the same way as running the bash shell.
+```
+docker exec -i -t mycontainer cowsay "Hello <name>"
+```
+
+!SUB
+### Update a docker image
 * Commit you change in the container to an (new) image.
-* Remove the container.
 ```
 docker commit mycontainer <yourname>/ubuntu
+```
+* Remove the container.
+
+```
 docker diff mycontainer               # shows the added files
 docker history <yourname>/ubuntu      # shows the image history
 docker stop mycontainer | xargs docker rm  # remove the container
 ```
+
+
+!SUB
+### Update a docker image
+* Now create a new container based on the new created image and run the game.
+* The second command shows that the game isn't available in the ubuntu image.
+```
+docker run --rm <yourname>/ubuntu cowsay "Hello world"
+docker run --rm ubuntu cowsay "Hello world"
+```
+* You can push your change to the docker registry therefore you need to create an own repository.
+
 
 !SUB
 ### Adding docker ui
@@ -125,14 +160,3 @@ docker run -d -p 9000:9000 \
   --privileged dockerui/dockerui
 ```
 - Browse to http://< ip-aws-instance >:9000 to see which containers are running.
-
-
-!SUB
-### Update a docker image
-* Now create a new container based on the new created image and run the game.
-* The second command shows that the game isn't available in the ubuntu image.
-```
-docker run --rm <yourname>/ubuntu cowsay "Hello world"
-docker run --rm ubuntu cowsay "Hello world"
-```
-* You can push your change to the docker registry therefore you need to create an own repository.

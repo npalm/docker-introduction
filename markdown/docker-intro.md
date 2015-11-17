@@ -6,6 +6,10 @@
 ![architecture](images/architecture.jpg)
 
 !SUB
+### Docker architecture
+![architecture](images/docker-execdriver-diagram.png)
+
+!SUB
 ### Docker terminology
 |||
 |--|--|
