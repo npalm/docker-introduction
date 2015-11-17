@@ -1,15 +1,6 @@
 # Docker tools
 ![docker-tools](images/docker-tools.jpg)
 
-
-!SUB
-### Using docker in CI / CD
-* There are many ways to use docker in a CI environment.
-* Setup your CI environment using docker.
-* Setup your slaves (jenkins) using docker.
-* Deploy the applications using docker, build once deploy everywhere.
-
-
 !SUB
 ### Docker compose
 Compose is a tool for defining and running complex applications with Docker. With Compose, you define a multi-container application in a single file, then spin your application up in a single command which does everything that needs to be done to get it running.
@@ -46,7 +37,6 @@ Machine makes it really easy to create Docker hosts on your computer, on cloud p
 ### Docker swarn
 Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts into a single, virtual host.
 
-![docker-swarm](images/beta.png)
 
 !SUB
 ### Service discovery
@@ -91,8 +81,3 @@ Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts in
 !SUB
 ## Container solution on Azure
 ![tools](images/docker-windows-linux.jpg)
-
-
-!SUB
-## Rocket
-![rocket](images/rocket.jpg)
