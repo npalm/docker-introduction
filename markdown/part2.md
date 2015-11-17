@@ -115,7 +115,10 @@ The next step is to automate the build.
 - Connect your GitHub (or BitBucket) to your Docker Hub account-
 - Create an automated build (top menu)
 - Use as name for the docker hub repo: `lab2-web` and choose create
-- Next go to build settings and set the Docker Tag Name to `latest`. Save Changes.
+- Next go to build settings:
+  - Set Name to `master`
+  - Set Docker Tag Name to `latest`
+- Save Changes
 
 !SUB
 ### Automated build
