@@ -132,6 +132,7 @@ git remote add origin https://github.com/<username-github>/lab2-web.git
 git push -u origin master
 ```
 
+!SUB
 ### Automated build
 - Observe the output on the build page on Docker Hub. Once the build is done create a container based on your new build image.
 ````
