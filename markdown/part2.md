@@ -114,13 +114,12 @@ The next step is to automate the build.
 - Go to the Docker hub: (dockerhub)[https://hub.docker.com/] and create an account
 - Connect your GitHub (or BitBucket) to your Docker Hub account-
 - Create an automated build (top menu)
-- Use as name for the docker hub repo: lab2-web
-- Select your Git repository.
-- Save the build.
+- Use as name for the docker hub repo: `lab2-web` and choose create
+- Next go to build settings and set the Docker Tag Name to `latest`. Save Changes.
 
 !SUB
 ### Automated build
-- Commit and push your sources to the git repo. The push will trigger the build
+- Commit and push your sources to the git repo to trigger a build.
 
 ```
 # Ensure you are in the directory lab2-web
@@ -128,8 +127,9 @@ echo # lab2-web >> README.md
 git init
 git add --all
 git commit -m "Some comment"
-git remote add origin https://github.com/<username-github>/lab2-web.git
+git remote add origin <your git url>
 git push -u origin master
+
 ```
 
 !SUB
