@@ -106,17 +106,7 @@ docker stop myapp | xargs docker rm -v
 The docker hub provides automated build. Follow the next steps to autoomate the docker build.
 - Create a GitHub or BitBucket account (or use an existing if you have).
 - Create a new repository lab2-web.
-- Commit and push your Dockerfile.
 
-```
-# Ensure you aar in the directory lab2-web
-echo # lab2-web >> README.md
-git init
-git add --all
-git commit -m "Some comment"
-git remote add origin https://github.com/<username-github>/lab2-web.git
-git push -u origin master
-```
 
 !SUB
 ### Automated build
@@ -126,11 +116,29 @@ The next step is to automate the build.
 - Create an automated build (top menu)
 - Use as name for the docker hub repo: lab2-web
 - Select your Git repository.
-- Save the build and trigger one.
+- Save the build.
+
+!SUB
+### Automated build
+- Commit and push your sources to the git repo. The push will trigger the build
+
+```
+# Ensure you are in the directory lab2-web
+echo # lab2-web >> README.md
+git init
+git add --all
+git commit -m "Some comment"
+git remote add origin https://github.com/<username-github>/lab2-web.git
+git push -u origin master
+```
+
+### Automated build
+- Observe the output on the build page on Docker Hub. Once the build is done create a container based on your new build image.
 ````
 docker run -d --name myapp -p 8888:80 \
     <docker-hub-account>/lab2-webapp
 ```
+
 
 !SUB
 ### Same same but different

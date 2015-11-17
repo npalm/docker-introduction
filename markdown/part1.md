@@ -4,7 +4,7 @@
 !SUB
 * All steps assumes you have a command line open.
   * For Windows users.
-    * Commands where a shell is invoked like `/bin/bash` will fial, pleas add a trailing slash.
+    * Commands where a shell is invoked like `/bin/bash` will fail, please add a trailing slash.
     * You can also login the boot2docker vm: `boot2docker ssh`
   * Linux users can do the all exercises just in a normal terminal.
 * Have fun
@@ -46,7 +46,7 @@ docker images
 !SUB
 ### Start a docker container
 * So time for hello world.
-* With the next command you start an ubuntu container and execute the command the echo some famous string.
+* With the next command you start an ubuntu container and execute the command echo some famous string.
 
 ```
 docker run ubuntu echo "hello world"
@@ -116,8 +116,7 @@ apt-get update && apt-get install cowsay -y && \
 cowsay "Hello world"
 exit
 ```
-* Our installed game is now available in the docker container with the name ubuntu. But not in the image
-that is used to create the container.
+* Our installed game is now available in the docker container with the name mycontainer. But not in the image that is used to create the container.
 * You can now execute the cowsay command in the same way as running the bash shell.
 ```
 docker exec -i -t mycontainer cowsay "Hello <name>"
