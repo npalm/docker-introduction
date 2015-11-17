@@ -92,8 +92,6 @@ docker run -d --name myapp -p 8888:80 lab2/webapp
 ```
 Test with a browser or curl.
 
-!SUB
-### Clean up
 * Have a look again on the description and you will see a volume will available.
 * Since we did not mount the volume explicit it is mount implicit in ```/var/lib/docker/vfs/```. By adding the switch ```-v``` will remove the files as well.
 
