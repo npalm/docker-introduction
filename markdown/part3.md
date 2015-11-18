@@ -10,7 +10,7 @@
 - hosts, use the host netowrking
 
 !SUB
-### DOcker networking topology
+### DOcker networking topology by Example
 
 
 ```
@@ -37,13 +37,14 @@ docker run --rm --net host busybox:latest ifconfig
 - Docker has a linking system that allows you to link multiple containers together and send connection information from one to another.
 - When containers are linked, information about a source container can be sent to a recipient container.
 - To establish links, Docker relies on the names of your containers.
-
-First we create a container for our database.
+- First we create a container for our database.
 ```
+# EXAMPLE ONLY
 docker run -d --name postgres <image> <command>
 ```
-Secondly we link our database to our web containter
+- Secondly we link our database to our web containter
 ```
+# EXAMPLE ONLY
 docker run -d --link postgres:db --name web <image> <command
 ```
 

@@ -6,6 +6,10 @@
 * Below some of the docker commands
 
 ```
+docker help
+
+# Partial output
+
 Commands:
     build     Build an image from a Dockerfile
     commit    Create a new image from a container's changes
@@ -18,9 +22,6 @@ Commands:
     push      Push an image or a repository to a Docker registry server
     tag       Tag an image into a repository
     top       Lookup the running processes of a container
-
-Run 'docker help' for all commands.
-Run 'docker COMMAND --help' for more information on a command.
 ```
 
 !SUB
@@ -58,6 +59,8 @@ Add some static contact, create a file index.html with some content for example.
 ### The Dockerfile
 With a dockerfile you specify how an images is build, which files are added and which command should executed when the container is started.
 
+!SUB
+### Build docker image
 Create a file named Dockerfile and add the following content
 
 ```
@@ -84,14 +87,13 @@ docker history lab2/webapp
 
 !SUB
 ### Run the image
-So first we have a look of the description of the image. Here you will see two ports are exposed, 80 and 443. We will use port 80 and map it to 8888.
+* first we have a look of the description of the image. Here you will see two ports are exposed, 80 and 443. We will use port 80 and map it to 8888.
 Start the container as deamon
 
 ```
 docker run -d --name myapp -p 8888:80 lab2/webapp
 ```
-Test with a browser or curl.
-
+* Test with a browser or curl.
 * Have a look again on the description and you will see a volume will available.
 * Since we did not mount the volume explicit it is mount implicit in ```/var/lib/docker/vfs/```. By adding the switch ```-v``` will remove the files as well.
 

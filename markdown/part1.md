@@ -7,6 +7,9 @@
     * Commands where a shell is invoked like `/bin/bash` will fail, please add a trailing slash.
     * You can also login the boot2docker vm: `boot2docker ssh`
   * Linux users can do the all exercises just in a normal terminal.
+  * Almost all steps formatted as code can be executed.
+    *  `\` is a line break and can be copied and pasted.
+    * `< ... > ` indicates you should replace the value
 * Have fun
 
 
@@ -15,6 +18,9 @@
 * Below some of the basic docker commands
 
 ```
+docker help
+
+# Partial output
 Commands:
     images    List images
     logs      Fetch the logs of a container
