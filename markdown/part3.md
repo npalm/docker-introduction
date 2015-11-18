@@ -135,7 +135,8 @@ for i in {0..99}; do curl http://localhost; echo ""; done
 # -v removes inplicit mounts volumes
 # -f force to remove running containers
 # -q shows id only
-docker rm -v -f $(docker ps -q)
+# -a show all (also stpped ones)
+docker rm -v -f $(docker ps -q -a)
 ```
 
 !SUB
