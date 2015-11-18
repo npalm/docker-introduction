@@ -58,6 +58,7 @@ Next we will build a simple cluster containing.
 Checkout out the following git repod
 ```
 git clone https://github.com/npalm/simple-docker-cluster.git
+cd simple-docker-cluster
 ```
 
 !SUB
