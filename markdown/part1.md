@@ -130,7 +130,7 @@ docker exec -i -t mycontainer cowsay "Hello <name>"
 
 !SUB
 ### Update a docker image
-* Commit you change in the container to an (new) image.
+* Commit your changes in the container to an (new) image.
 ```
 docker commit mycontainer <yourname>/ubuntu
 ```

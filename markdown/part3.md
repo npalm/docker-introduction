@@ -81,7 +81,7 @@ docker run -d --name redis redis
 ```
 
 !SUB
-### Building a cluster - web layter
+### Building a cluster - web layer
 - We will use node.js as web server.
 - Have a look at the Dockerfile in the web directory. We use the official node image as base image.
 

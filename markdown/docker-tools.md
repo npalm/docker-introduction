@@ -34,7 +34,7 @@ Machine makes it really easy to create Docker hosts on your computer, on cloud p
 ![docker-machine](images/beta.png)
 
 !SUB
-### Docker swarn
+### Docker swarm
 Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts into a single, virtual host.
 
 
