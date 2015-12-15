@@ -25,7 +25,7 @@ Commands:
     images    List images
     logs      Fetch the logs of a container
     ps        List containers
-    pull      Pull an image or a repository from a Docker registry server
+    pull      Pull an image or a repository from a Docker registry 
     rm        Remove one or more containers
     rmi       Remove one or more images
     run       Run a command in a new container
