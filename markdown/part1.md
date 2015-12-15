@@ -137,9 +137,11 @@ docker commit mycontainer <yourname>/ubuntu
 * Remove the container.
 
 ```
-docker diff mycontainer               # shows the added files
-docker history <yourname>/ubuntu      # shows the image history
-docker stop mycontainer | xargs docker rm  # remove the container
+docker diff mycontainer           # shows the added files
+docker history ubuntu             # shows the image history
+docker history <yourname>/ubuntu  # shows the history of your image
+docker stop mycontainer \
+       | xargs docker rm          # remove the container
 ```
 
 
