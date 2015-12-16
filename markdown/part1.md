@@ -25,7 +25,7 @@ Commands:
     images    List images
     logs      Fetch the logs of a container
     ps        List containers
-    pull      Pull an image or a repository from a Docker registry 
+    pull      Pull an image or a repository from a Docker registry
     rm        Remove one or more containers
     rmi       Remove one or more images
     run       Run a command in a new container
@@ -134,12 +134,15 @@ docker exec -i -t mycontainer cowsay "Hello <name>"
 ```
 docker commit mycontainer <yourname>/ubuntu
 ```
-* Remove the container.
-
+* Inspect your changes.
 ```
 docker diff mycontainer           # shows the added files
 docker history ubuntu             # shows the image history
-docker history <yourname>/ubuntu  # shows the history of your image
+docker history <yourname>/ubuntu  # shows the image history
+```
+* Remove the container.
+
+```
 docker stop mycontainer \
        | xargs docker rm          # remove the container
 ```

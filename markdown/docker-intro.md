@@ -117,7 +117,7 @@ Each Dockerfile is a script, composed of various commands and arguments listed s
 ## Dockerfile by example
 ```
 FROM dockerfile/java:oracle-java8
-MAINTAINER Niek Palm <dev.npalm@gmail.com
+MAINTAINER Niek Palm <dev.npalm@gmail.com>
 
 RUN apt-get install git -y
 
