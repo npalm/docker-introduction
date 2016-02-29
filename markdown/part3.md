@@ -1,4 +1,5 @@
 # Hands On Lab 3
+![networking](images/turtles.jpg)
 ## Networking
 
 !SUB
@@ -10,7 +11,7 @@
 - hosts, use the host netowrking
 
 !SUB
-### DOcker networking topology by Example
+### Docker networking topology by Example
 
 
 ```
@@ -49,20 +50,23 @@ docker run -d --link postgres:db --name web <image> <command
 ```
 
 !SUB
-### Building a cluster.
+### Building a cluster
 Next we will build a simple cluster containing.
-- One node acting as proxy
-- Three nodes acting as web server
-- One node acting as data store.
+- One node acting as proxy, nginx is used as proxy.
+- Three nodes acting as web server, nginx is used as web server.
+- One node acting as data store, reddis is used as key value store.
+![cluster](images/simple-cluster.jpg)
 
-Checkout out the following git repod
+!SUB
+### Building a cluster - getting sources
+Clone the following git repo.
 ```
 git clone https://github.com/npalm/simple-docker-cluster.git
 cd simple-docker-cluster
 ```
 
 !SUB
-### Building a cluster - data store.
+### Building a cluster - data store
 - For the data store we use redis, a fast in memory key store.
 - We can build a redis image our selves or use the offical one. An example is available in the redis directory.
 
@@ -128,7 +132,7 @@ for i in {0..99}; do curl http://localhost; echo ""; done
 
 
 !SUB
-# Clean up
+### Clean up
 - Docker ps shows you the conainters
 - Docker rm removes conainters
 
@@ -146,5 +150,7 @@ docker rm -v -f $(docker ps -q -a)
 ```
 docker-compose build
 docker-compose up
+
+# execute in a new terminal window
 for i in {0..99}; do curl http://localhost; echo ""; done
 ```

@@ -1,4 +1,5 @@
 # Hands On Lab 2
+![dockerfile](images/dockerfile.png)
 ## Building a image
 
 !SUB
@@ -26,7 +27,7 @@ Commands:
 
 !SUB
 ### Building our own webserver
-* In this lab we are going to build our own webserver images that hosts some static pages.
+* In this lab we are going to build our own webserver image that hosts some static pages.
 * Steps
     * Create some static content
     * Create a Dockerfile
@@ -35,14 +36,12 @@ Commands:
 
 !SUB
 ### Create some static content
-
-Create a empty dir.
-
+* Create a empty dir.
 ```
 mkdir lab2-web
 cd lab2-web
 ```
-Add some static contact, create a file index.html with some content for example.
+* Add some static contact, create a file `index.html` with some content for example.
 
 ```
 <!DOCTYPE html>
@@ -61,7 +60,7 @@ With a dockerfile you specify how an images is build, which files are added and 
 
 !SUB
 ### Build docker image
-Create a file named Dockerfile and add the following content
+Create a file named `Dockerfile` and add the following content
 
 ```
 FROM nginx
@@ -74,59 +73,86 @@ COPY index.html /usr/share/nginx/html/
 ### Build docker image
 * Building the image based on a parent image will create only the diff image. Now build the image, you should specify a repository and tag.
 * Specify as repository "lab2/webapp" at leave the tag empty.
-
 ```
 docker build --tag lab2/webapp .
 ```
-
-Check the result
+* Check the result
 ```
 docker images
-docker history lab2/webapp
 ```
 
 !SUB
 ### Run the image
-* first we have a look of the description of the image. Here you will see two ports are exposed, 80 and 443. We will use port 80 and map it to 8888.
+* First we have a look of the description of the image. Here you will see two ports are exposed, 80 and 443. We will use port 80 and map it to 8888.
 Start the container as deamon
-
 ```
 docker run -d --name myapp -p 8888:80 lab2/webapp
 ```
 * Test with a browser or curl.
-* Have a look again on the description and you will see a volume will available.
-* Since we did not mount the volume explicit it is mount implicit in ```/var/lib/docker/vfs/```. By adding the switch ```-v``` will remove the files as well.
-
+* Clean up
 ```
-docker stop myapp | xargs docker rm -v
+docker stop myapp | xargs docker rm
+```
+
+!SUB
+### Run the image [OPTIONAL]
+* When automating it does not work when you have to decide on design time which port you need to claim on the host.
+* You can let docker decide which port to claim by leaving the map on the host site empty. `docker run -d -p 80 ...`. The result of this command is the container id. By using the command `docker port <id>` you can find the mapped port.
+* The next command combines all previous actions.
+```
+docker port $(docker run -d --name myapp -p 80 lab2/webapp) | \
+    cut -d\> -f2 | \
+    xargs curl
+```
+* Clean up
+```
+docker stop myapp | xargs docker rm
 ```
 
 !SUB
 ### Automated build
-The docker hub provides automated build. Follow the next steps to autoomate the docker build.
-- Create a GitHub or BitBucket account (or use an existing if you have).
-- Create a new repository lab2-web.
+
+![docker-machine](images/optional.jpg)
+
+###This section is optional
+* Less than 20 minutes to go, read the next slide and go to lab 3
 
 
 !SUB
 ### Automated build
+* In Lab 1 we have build a docker container manually. In the first part of the second lab we automated our build using a Dockerfile. The next step is to automate the proces as whole.
+* The docker hub provides automated build. Follow the next steps to autoomate the docker build.
+* The next steps will guide you to set up the build.
+  * Create a git repo in GitHub or BitBucket, create an account if you don't have
+  * Create a dockerhub account if you don't have it yet.
+  * Create an automated build on dockerhub.
+  * Push the source code to your git repo.
+
+!SUB
+### Automated build (GIT)
+- Create a [GitHub](http://www.github.com) or [BitBucket](http://www.bitbucket.org) account (or use an existing if you have). We using a public git repo to host our code.
+- Create a new repository `lab2-web`.
+
+
+!SUB
+### Automated build (DockerHub)
 The next step is to automate the build.
-- Go to the Docker hub: (dockerhub)[https://hub.docker.com/] and create an account
-- Connect your GitHub (or BitBucket) to your Docker Hub account-
-- Create an automated build (top menu)
-- Use as name for the docker hub repo: `lab2-web` and choose create
+- Go to the Docker hub: [dockerhub])(https://hub.docker.com/) and create an account.
+- Connect your GitHub (or BitBucket) to your Docker Hub account.
+- Create an automated build (top menu).
+- Use as name for the docker hub repo: `lab2-web` and choose create.
 - Next go to build settings:
-  - Set Name to `master`
-  - Set Docker Tag Name to `latest`
-- Save Changes
+  - Set Name to `master`, should be the default.
+  - Set Docker Tag Name to `latest`, should be the default.
+- Click save changes.
 
 !SUB
 ### Automated build
-- Commit and push your sources to the git repo to trigger a build.
+- Commit and push your sources to the created git repo to trigger a build.
 
 ```
 # Ensure you are in the directory lab2-web
-echo # lab2-web >> README.md
+echo '# lab2-web' >> README.md
 git init
 git add --all
 git commit -m "Some comment"
@@ -140,9 +166,9 @@ git push -u origin master
 - Observe the output on the build page on Docker Hub. Once the build is done create a container based on your new build image.
 - You could also trigger a build with a HTTP post. See the instructions on the build settings page.
 
-````
+```
 docker run -d --name myapp -p 8888:80 \
-    <docker-hub-account>/lab2-webapp
+    <docker-hub-account>/lab2-web
 ```
 
 
