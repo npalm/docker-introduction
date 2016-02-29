@@ -1,0 +1,26 @@
+.reveal {
+  font-size: 30px;
+}
+
+.reveal p {
+  /* text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center; */
+}
+
+.reveal li > code {
+  font-size: 25px;
+  color: #162955;
+}
+
+.reveal pre > code {
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+}
+
+.reveal img {
+  max-height: 85%;
+  max-width: 85%;
+}
