@@ -57,6 +57,12 @@ gitlab:
 ### Docker swarm
 Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts into a single, virtual host.
 
+![swarm](images/docker-swarm.png)
+
+
+### Docker swarm
+![swarm](images/docker-swarm2.png)
+
 
 !SUB
 ## TOOLS - TOOLS - TOOLS
