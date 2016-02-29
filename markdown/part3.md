@@ -54,7 +54,7 @@ docker run -d --link postgres:db --name web <image> <command
 Next we will build a simple cluster containing.
 - One node acting as proxy, nginx is used as proxy.
 - Three nodes acting as web server, nginx is used as web server.
-- One node acting as data store, reddis is used as key value store.
+- One node acting as data store, redis is used as key value store.
 ![cluster](images/simple-cluster.jpg)
 
 !SUB
