@@ -55,7 +55,7 @@ docker images
 ```
 docker run ubuntu echo "hello world"
 ```
-* Running the command above creates, starts and exit the ubuntu container. 
+* Running the command above creates, starts and exit the ubuntu container.
 - Observe the output with commands below, remember you can get help by executing `docker help` or `docker help ps`
 ```
 docker ps
@@ -166,16 +166,3 @@ docker run --rm <yourname>/ubuntu cowsay "Hello world"
 docker run --rm ubuntu cowsay "Hello world"
 ```
 * You can push your change to the docker registry therefore you need to create an own repository. But rememeber it is a bad practice to push manual build binaries into a repository.
-
-
-!SUB
-### Adding docker ui
-- In the next part we are creating more docker containers. Just for the fun we install a dockerui on our host. So we can observer our containers via a web application.
-- Create a container for running dockerui as follow.
-
-```
-docker run -d -p 9000:9000 \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  --privileged dockerui/dockerui
-```
-- Browse to [http://localhost:9000](http://localhost:9000) to see which containers are running, when using docker toolbox on Mac or Windows replace localhost by the ip of the docker machine.
