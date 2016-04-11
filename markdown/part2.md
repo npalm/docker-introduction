@@ -88,7 +88,10 @@ Start the container as deamon
 ```
 docker run -d --name myapp -p 8888:80 lab2/webapp
 ```
-* Test with a browser or curl.
+* Test with a browser or curl. You have to point your browser to the host of the docker engine.
+  * AWS: user your AWS instance ip address.
+  * Mac or Windows: use the ip address of docker-machine.
+  * Linux native: localhost
 * Clean up
 ```
 docker stop myapp | xargs docker rm

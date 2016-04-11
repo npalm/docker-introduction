@@ -3,7 +3,7 @@
 ## Networking
 
 !SUB
-### DOcker networking topology
+### Docker networking topology
 ![test](images/docker-network-topology.png)
 - none, no networking
 - bridge, each container has is own
@@ -51,7 +51,7 @@ docker run -d --link postgres:db --name web <image> <command
 
 !SUB
 ### Building a cluster
-Next we will build a simple cluster containing.
+Next we build a simple cluster containing.
 - One node acting as proxy, nginx is used as proxy.
 - Three nodes acting as web server, nginx is used as web server.
 - One node acting as data store, redis is used as key value store.
@@ -77,16 +77,41 @@ docker search redis
 # download the image
 docker pull redis
 
-# inspect the image
+# inspect the image and look for the volumes listed
 docker inspect redis
-
-# start the data store
-docker run -d --name redis redis
 ```
+
+- Using `docker inspect` you should be able to find the a section that describes the volumes. This is the part where the container is supposed to store the persistent data.
+
+
+!SUB
+### Building a cluster - data store
+- The volume for the redis conatiner `/data` is thet place where the container stores ithe data. If we do not specify the volume explicit docker will create a volume for us, a docker managed volume.
+
+```
+# start a redis container
+docker run -d --name redis redis
+
+# find the volume name and list the volumes.
+docker inspect --format='{{range .Mounts}}{{.Name}}{{end}}' redis
+docker volumes ls
+
+# remove the redis contaienr, -v will remove the volume as well.
+docker rm -v -f redis
+```
+
+- For our redis container we mount a volume explicit. We mount a directory from the host direct to the container.
+
+```
+# start the data store
+mkdir .data \
+docker run -d --name redis -v $(pwd)/.data:/data redis
+```
+
 
 !SUB
 ### Building a cluster - web layer
-- We will use node.js as web server.
+- We use node.js as web server.
 - Have a look at the Dockerfile in the web directory. We use the official node image as base image.
 
 ```
@@ -148,7 +173,13 @@ docker rm -v -f $(docker ps -q -a)
 ### Same same but different
 ![easy](images/easy.jpg)
 ```
+# have a look at the compose file
+cat docker-compose.yml
+
+# build the conatiners
 docker-compose build
+
+# start the containers
 docker-compose up
 
 # execute in a new terminal window
