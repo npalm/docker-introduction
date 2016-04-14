@@ -17,7 +17,7 @@
 
 !SUB
 ### Docker machine
-Machine makes it really easy to create Docker hosts on your computer, on cloud providers and inside your own data center. It creates servers, installs Docker on them, then configures the Docker client to talk to them.
+Docker Machine makes it really easy to create Docker hosts on your computer, on cloud providers, and inside your data center. It creates servers, installs Docker on them, then configures the Docker client to talk to them.
 ![docker-machine](images/docker-machine.png)
 
 
@@ -25,7 +25,7 @@ Machine makes it really easy to create Docker hosts on your computer, on cloud p
 !SUB
 ### Docker compose
 
-Compose is a tool for defining and running complex applications with Docker. With Compose, you define a multi-container application in a single file, then spin your application up in a single command which does everything that needs to be done to get it running.
+Compose is a tool for defining and running complex applications with Docker. With Compose, you define a multi-container application in a single file, and then you spin your application up in a single command which does everything that needs to be done to get it running.
 
 ![docker-compose](images/docker-compose.png)
 

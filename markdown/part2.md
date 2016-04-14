@@ -27,7 +27,7 @@ Commands:
 
 !SUB
 ### Building our own webserver
-* In this lab we are going to build our own webserver image that hosts some static pages.
+* In this handson lab we will build our own webserver image that hosts some static pages.
 * Steps
     * Create some static content
     * Create a Dockerfile
@@ -36,12 +36,12 @@ Commands:
 
 !SUB
 ### Create some static content
-* Create a empty dir.
+* Create an empty dir.
 ```
 mkdir lab2-web
 cd lab2-web
 ```
-* Add some static contact, create a file `index.html` with some content for example.
+* Add some static content, for example create a file index.html with some content.
 
 ```
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ cd lab2-web
 
 !SUB
 ### The Dockerfile
-With a dockerfile you specify how an images is build, which files are added and which command should executed when the container is started.
+With a dockerfile you specify how an image is build, which files are added, and which command should executed when the container is started.
 
 !SUB
 ### Build docker image
@@ -71,8 +71,9 @@ COPY index.html /usr/share/nginx/html/
 
 !SUB
 ### Build docker image
-* Building the image based on a parent image will create only the diff image. Now build the image, you should specify a repository and tag.
-* Specify as repository "lab2/webapp" at leave the tag empty.
+* Building the image based on a parent image will create only the diff image.
+  * For building the image, you should specify a repository and tag.
+  * Specify as repository "lab2/webapp" at leave the tag empty.
 ```
 docker build --tag lab2/webapp .
 ```
@@ -124,10 +125,10 @@ docker stop myapp | xargs docker rm
 !SUB
 ### Automated build
 * In Lab 1 we have build a docker container manually. In the first part of the second lab we automated our build using a Dockerfile. The next step is to automate the proces as whole.
-* The docker hub provides automated build. Follow the next steps to autoomate the docker build.
-* The next steps will guide you to set up the build.
-  * Create a git repo in GitHub or BitBucket, create an account if you don't have
-  * Create a dockerhub account if you don't have it yet.
+* The docker hub provides automated build. Follow the next steps to automate the docker build.
+* The next steps will guide you through setting up the build.
+  * Create a git repo on GitHub or BitBucket, create an account if you don't have.
+  * Create a dockerhub account if you do not have it yet.
   * Create an automated build on dockerhub.
   * Push the source code to your git repo.
 

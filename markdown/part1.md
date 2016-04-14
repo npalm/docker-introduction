@@ -41,21 +41,21 @@ Run 'docker COMMAND --help' for more information on a command.
 ```
 docker pull ubuntu
 ```
-* We have now the image of ubuntu in our local repository, verify with the command:
+* Now we have the image of ubuntu in our local repository, verify with the command:
 ```
 docker images
 ```
-* [VM]: You will see many images since all images are pre fetched.
+* [VM]: You will see many images since all images are pre-fetched.
 
 
 !SUB
 ### Start a docker container
 * Time for hello world.
-* With the next command you start an ubuntu container and execute the command echo some famous string.
+* With the next command you start an ubuntu container and execute the command to echo some famous string.
 ```
 docker run ubuntu echo "hello world"
 ```
-* Running the command above creates, starts and exit the ubuntu container.
+* Running the command above creates, starts and exits the ubuntu container.
 - Observe the output with commands below, remember you can get help by executing `docker help` or `docker help ps`
 ```
 docker ps
@@ -89,8 +89,8 @@ docker ps -a
 !SUB
 ### Update a docker image
 
-* Changes made in a container are persisted only in that container. At the moment the container is destroyed the change is lost too.
-* Commit a change made in a container to an image, persists the change.
+* Changes made in a container are persisted only in that container. At the moment the container is destroyed the change are lost too.
+* Commit the changes made in a container to an image, persists the change.
 
 ```
 # Start our container
@@ -157,12 +157,12 @@ docker stop mycontainer \
 
 !SUB
 ### Update a docker image
-* Now create a new container based on the new created image and run the game.
+* Now create a new container based on the newly created image and run the game.
 ```
 docker run --rm <yourname>/ubuntu cowsay "Hello world"
 ```
-* The next command shows that the game isn't available in the ubuntu image.
+* The next command shows that the game is not available in the ubuntu image.
 ```
 docker run --rm ubuntu cowsay "Hello world"
 ```
-* You can push your change to the docker registry therefore you need to create an own repository. But rememeber it is a bad practice to push manual build binaries into a repository.
+* You can push your changes to the docker registry, for which you neet to create your own repository. But rememeber it is a bad practice to push manual build binaries into a repository.

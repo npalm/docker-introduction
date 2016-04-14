@@ -7,7 +7,7 @@
 * We use Vagrant to automate the setup of the VM
 * The VirtualBox appliance contains
   * Ubuntu 14.04 Desktop
-  * Tools: Docker, Docker Compose and Git (at least)
+  * Tools: Docker, Docker Compose and Git (among others)
   * User: Vagrant, Password: Vagrant
 
 

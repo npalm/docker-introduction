@@ -69,18 +69,18 @@ RMI a container image (delete image)
 
 | command      | description           |
 | ------------ |---------------|
-| ps |shows running containers.|
-| logs |gets logs from container.|
-| inspect |looks at all the info on a container (including IP address).|
-| events |gets events from container.|
-| port |shows public facing port of container.|
-| top |shows running processes in container.|
-| stats |shows containers' resource usage statistics.|
+| ps |shows running containers|
+| logs |fetch the logs of a containe|
+| inspect |return low-level information on a container or image|
+| events |gets events from container|
+| port |list port mappings for the container
+| top |display the running processes of a container|
+| stats |display a live stream of container(s) resource usage statistics
 
 !SUB
 ## Dockerfile
 
-Each Dockerfile is a script, composed of various commands and arguments listed successively to automatically perform actions on a base image in order to create a new one. They are used for organizing things and greatly help with deployments by simplifying the process start-to-finish.
+Each Dockerfile is a script, composed of various commands and arguments listed successively to automatically perform actions on a base image in order to create a new one. Such script are used for organizing things and greatly help with deployments by simplifying the process start-to-finish.
 
 !SUB
 ## Dockerfile by example
