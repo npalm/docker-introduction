@@ -8,7 +8,7 @@
 - none, no networking
 - bridge, each container has is own
 - joined, containers shares a single networking
-- hosts, use the host netowrking
+- hosts, use the host networking
 
 !SUB
 ### Docker networking topology by Example
@@ -18,7 +18,7 @@
 # Run a container with no network
 docker run --rm --net none busybox:latest ifconfig
 
-# Run a containter in a bridged network
+# Run a container in a bridged network
 docker run --rm --net bridge busybox:latest ifconfig
 
 # or (bridge is the default)
@@ -43,7 +43,7 @@ docker run --rm --net host busybox:latest ifconfig
 # EXAMPLE ONLY
 docker run -d --name postgres <image> <command>
 ```
-- Secondly we link our database to our web containter
+- Secondly we link our database to our web container
 ```
 # EXAMPLE ONLY
 docker run -d --link postgres:db --name web <image> <command
