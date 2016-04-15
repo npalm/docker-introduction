@@ -99,7 +99,7 @@ docker stop myapp | xargs docker rm
 ```
 
 !SUB
-### Run the image [OPTIONAL]
+### Mapping ports
 * When automating it does not work when you have to decide on design time which port you need to claim on the host.
 * You can let docker decide which port to claim by leaving the map on the host site empty. `docker run -d -p 80 ...`. The result of this command is the container id. By using the command `docker port <id>` you can find the mapped port.
 * The next command combines all previous actions.
