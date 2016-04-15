@@ -30,9 +30,10 @@ chmod 400 <path>/HANDSON.pem
 !SUB
 ### Windows Users: How to login to an AWS instance
 
-- Download a ppk file (.ppk) needed to access the AWS instances. Click [here](key/HANDSON.ppk) to download the key and save it locally.
+- Download a ppk file (.ppk) needed to access the AWS instances. Click <a href="key/HANDSON.ppk" download="HANDSON.ppk">here</a> to download the key and save it locally. 
 - Download [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 - Start putty and enter the host ip
+- Secect 'SSH -> Auth' on the left hand side, browse and select the downloaded private key file.
 - Select `data` on the left hand side under `auto-login username` enter the user `ubuntu`
 - Select connection in putty and set 'Sending of null packets to keep session active - Seconds between keepalives (0 to turn off)'' to 120 in order to prevent ssh timeout
 - To prevent ssh timeout in putty select `connection`. Under "Sending of null packets to keep session active - Seconds between keepalives (0 to turn off)", enter `120` in the text box.
