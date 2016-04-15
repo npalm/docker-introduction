@@ -5,9 +5,9 @@
 ### Docker architecture
 ![architecture](images/architecture.jpg)
 
-!SUB
-### Docker architecture
-![architecture](images/docker-execdriver-diagram.png)
+[//]: #!SUB
+[//]: //#### Docker architecture
+[//]: //![architecture](images/docker-execdriver-diagram.png)
 
 !SUB
 ## The Life of a Container  

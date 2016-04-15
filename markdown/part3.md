@@ -61,6 +61,7 @@ Next we build a simple cluster containing.
 ### Building a cluster - getting sources
 Clone the following git repo.
 ```
+cd
 git clone https://github.com/npalm/simple-docker-cluster.git
 cd simple-docker-cluster
 ```
@@ -94,7 +95,7 @@ docker run -d --name redis redis
 
 # find the volume name and list the volumes.
 docker inspect --format='{{range .Mounts}}{{.Name}}{{end}}' redis
-docker volumes ls
+docker volume ls
 
 # remove the redis contaienr, -v will remove the volume as well.
 docker rm -v -f redis
